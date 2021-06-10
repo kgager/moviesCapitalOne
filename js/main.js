@@ -9,11 +9,15 @@ $(document).ready(() => {
 function getMovies(searchText){
   //make request to api using axios
   // Make a request for a user with a given ID
+  var x =1;
   axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText)
     .then(function (response) {
       let movies = response.data.results;
       let output = '';
       $.each(movies, (index, movie) => {
+        x +=1;
+        if (x<12)
+        {
         output+=`
           <div class="col-md-3">
             <div class="well text-center">
@@ -22,14 +26,14 @@ function getMovies(searchText){
               <a onclick="movieSelected('${movie.id}')" class="btn btn-primary" href="#">Movie Details</a>
             </div>
           </div>
-        `;
+        `};
       });
        output+= `
       <div class="loadmore">
 
         <hr>
 
-        <a href="index.html" class="btn btn-primary">Load More</a>
+        <a href="index.html" class="btn btn-primary">Show More</a>
       </div>`;
 
 
