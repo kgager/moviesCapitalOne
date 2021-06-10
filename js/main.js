@@ -24,6 +24,16 @@ function getMovies(searchText){
           </div>
         `;
       });
+       output+= `
+      <div class="loadmore">
+
+        <hr>
+
+        <a href="index.html" class="btn btn-primary">Load More</a>
+      </div>`;
+
+
+
       $('#movies').html(output);
     })
     .catch(function (error) {
@@ -55,7 +65,8 @@ function getMovie(){
               <li class="list-group-item"><strong>Genre:</strong> ${movie.genres[0].name}, ${movie.genres[1].name}</li>
               <li class="list-group-item"><strong>Released:</strong> ${movie.release_date}</li>
               <li class="list-group-item"><strong>Runtime:</strong> ${movie.runtime} min.</li>
-              <li class="list-group-item"><strong>Production Companies:</strong> ${movie.production_companies[0].name} min.</li>
+              <li class="list-group-item"><strong>Direcror:</strong> ${movie.director} min.</li>
+
             </ul>
           </div>
         </div>
@@ -63,9 +74,12 @@ function getMovie(){
           <div class="well">
 
             <hr>
-            
+
             <a href="index.html" class="btn btn-default">Go Back To Search</a>
           </div>
+
+
+
         </div>
     `;
     $('#movie').html(output);
